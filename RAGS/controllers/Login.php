@@ -5,8 +5,8 @@ class Login{
     public function main() {        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $profile = new User(
-                $_POST['user_email'],
-                $_POST['user_pass']
+                $_POST['correro_user'],
+                $_POST['pass_user']
             );            
             $profile = $profile->login();
             print_r($profile);

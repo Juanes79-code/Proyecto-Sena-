@@ -30,13 +30,16 @@ class User{
         
     }
 
-    // Constructor de 2 parámetros (inicio sesión)
-    public function __construct0(){}
 
-    // Constructor de 2 parámetros (inicio sesión)
-    public function __construct2($correo_user,$pass_user){        
-        $this->user_email = $user_email;
-        $this->user_pass = $user_pass;        
+
+     public function __construct2($correo_user,$pass_user){        
+        $this->correo_user = $correo_user;
+        $this->pass_user = $pass_user;        
+    }
+
+    public function __construct1($codigo_rol){        
+        $this->codigo_rol = $codigo_rol;
+           
     }
 
     // Constructor de 8 parámetros (Obj de toda la clase)
@@ -47,7 +50,8 @@ class User{
         $this->user_lastname = $user_lastname;
         $this->user_id = $user_id;
         $this->user_email = $user_email;
-        $this->user_pass = $user_pass;
+        $this->user_pass = $user_pass; // Constructor de 2 parámetros (inicio sesión)
+  
         $this->user_status = $user_status;
     }
     // Constructor de 9 parámetros (Obj de toda la clase)
@@ -67,11 +71,11 @@ class User{
     /* Métodos Setters y Getters */
     
     // Código del rol
-    public function setRolCode($rol_code){
-        $this->rol_code = $rol_code;
+    public function setcodigoRol($codigo_rol){
+        $this->codigo_rol = $codigo_rol;
     }
-    public function getRolCode(){
-        return $this->rol_code;
+    public function getcodigoRol(){
+        return $this->codigo_rol;
     }
     // Nombre del rol
     public function setRolName($rol_name){
@@ -135,10 +139,10 @@ class User{
     public function login(){
         try {
             $sql = 'SELECT * FROM USERS
-                    WHERE user_email = :userEmail AND user_pass = :userPass';
+                    WHERE correo_User = :correoUser AND pass_user: = :passUser';
             $stmt = $this->dbh->prepare($sql);
-            $stmt->bindValue('userEmail', $this->getUserEmail());
-            $stmt->bindValue('userPass', sha1($this->getUserPass()));
+            $stmt->bindValue('correoUser', $this->getcorreoUser());
+            $stmt->bindValue('passUser', sha1($this->getpassUser()));
             $stmt->execute();
             $userDb = $stmt->fetch();
             if ($userDb) {
@@ -160,7 +164,7 @@ class User{
             die($e->getMessage());
         }
     }
-
+    print_r("correoUser")
 
     # RF04_CU04 - Registrar Rol
     public function createRol(){
