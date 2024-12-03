@@ -3,15 +3,15 @@
 class User{
     /* -------- ATRIBUTOS ------- */
     private $dbh;
-    private $rol_code;
-    private $rol_name;
-    private $user_code;
-    private $user_name;
-    private $user_lastname;
-    private $user_id;
-    private $user_email;
-    private $user_pass;
-    private $user_status;
+    private $codigo_usuario;
+    private $nombres_user;
+    private $last_name_user;
+    private $cedula_user;
+    private $correo_user;
+    private $cargo_user;
+    private $codigo_rol;
+    private $pass_user;
+  
     
     /* --------- MÉTODOS --------- */ 
     
@@ -34,7 +34,7 @@ class User{
     public function __construct0(){}
 
     // Constructor de 2 parámetros (inicio sesión)
-    public function __construct2($user_email,$user_pass){        
+    public function __construct2($correo_user,$pass_user){        
         $this->user_email = $user_email;
         $this->user_pass = $user_pass;        
     }

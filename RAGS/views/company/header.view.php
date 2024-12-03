@@ -61,7 +61,7 @@ https://templatemo.com/tm-580-woox-travel
                         <li><a href="about.html">About</a></li>
                         <li><a href="deals.html">Deals</a></li>
                         <li><a href="reservation.html">Reservation</a></li>
-                        <li><a href="Login">Iniciar sección</a></li>
+                        <li><a href="views/company/login.view.php">Iniciar sección</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
