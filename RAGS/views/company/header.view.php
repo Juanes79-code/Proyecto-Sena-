@@ -65,6 +65,7 @@ https://templatemo.com/tm-580-woox-travel
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
+                        <?php echo $rol->getRolCode(); ?>
                     </a>
                     <!-- ***** Menu End ***** -->
                 </nav>
