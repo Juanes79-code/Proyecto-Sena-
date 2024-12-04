@@ -33,12 +33,97 @@ class User{
         $this->codigo_rol = $codigo_rol;
         $this->pass_user = $pass_user;        
     }
+    
+    // Contructor de ocho parametros
+    public function __construct8($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$cargo_user,$codigo_rol,$pass_user){
+        $this->codigo_usuario = $codigo_usuario;
+        $this->nombres_user = $nombres_user;
+        $this->last_name_user = $last_name_user;
+        $this->cedula_user = $cedula_user;
+        $this->correo_user = $correo_user;
+        $this->cargo_user = $cargo_user;
+        $this->codigo_rol = $codigo_rol;
+        $this->pass_user = $pass_user;
+    }
+
+    // Codigo usuario
+    public function setCodigoUser($codigo_usuario){
+        $this->codigo_usuario = $codigo_usuario;
+    }
+
+    public function getCodigoUser(){
+        return $this->codigo_usuario;
+    }
+
+    // Nombre usuario
+    public function setNombreUser($nombres_user){
+        $this->nombres_user = $nombres_user;
+    }
+
+    public function getNombreUser(){
+        return $this->nombres_user;
+    }
+
+    // Apellido usuario
+    
+    public function setLastNameUser($last_name_user){
+        $this->last_name_user = $last_name_user;
+    }
+
+    public function getLastNameUser(){
+        return $this->last_name_user;
+    }
+
+    // Cedula usuario
+    public function setCedulaUser($cedula_user){
+        $this->cedula_user = $cedula_user;
+    }
+
+    public function getCedulaUser(){
+        return $this->cedula_user;
+    }
+
+    // Correo usuario
+
+    public function setCorreoUser($correo_user){
+        $this->correo_user = $correo_user;
+    }
+
+    public function getCorreoUser(){
+        return $this->correo_user;
+    }
+
+    // Cargo usuario
+    
+    public function setCargoUser($cargo_user){
+        $this->cargo_user = $cargo_user;
+    }
+    
+    public function getCargoUser(){
+        return $this->cargo_user;
+    }
+
+    // Codigo rol
 
     public function setRolCode($codigo_rol){
         $this->codigo_rol = $codigo_rol;
     }
+
     public function getRolCode(){
         return $this->codigo_rol;
     }
+
+    // Contraseña usuario
+
+    public function setPassUser($pass_user){
+        $this->pass_user = $pass_user;
+    }
+
+    public function getPassUser(){
+        return $this->pass_user;
+    }
+
+    // Persistencia a la base de datos
+
 }
 ?>
