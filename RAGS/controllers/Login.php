@@ -11,13 +11,12 @@ class Login{
                 $_POST['correo_user'],
                 $_POST['pass_user']
             );            
-            // $profile = $profile->login();
-            // print_r($profile);
-            // if ($profile) {                
-            //     header("Location:?c=Dashboard");
-            // } else {                
-            //     header("Location:?");                
-            // }
+            $profile = $profile->login();             
+            if ($profile) {                
+                header("Location:?c=Dashboard");
+            } else {                
+                header("Location:?");                
+            }
         }
     }
 }

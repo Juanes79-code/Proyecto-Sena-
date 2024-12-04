@@ -29,8 +29,8 @@ class User{
         }
         
     }
-    public function __construct2($codigo_rol,$pass_user){        
-        $this->codigo_rol = $codigo_rol;
+    public function __construct2($correo_user,$pass_user){        
+        $this->correo_user = $correo_user;
         $this->pass_user = $pass_user;        
     }
     
@@ -124,6 +124,34 @@ class User{
     }
 
     // Persistencia a la base de datos
+    public function login(){
+        try {
+            $sql = 'SELECT * FROM USUARIOS
+                    WHERE correo_user = :userEmail AND pass_user = :userPass';            
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('userEmail', $this->getCorreoUser());
+            $stmt->bindValue('userPass', sha1($this->getPassUser()));
+            $stmt->execute();
+            $userDb = $stmt->fetch();            
+            if ($userDb) {
+                $user = new User(
+                    $userDb['codigo_usuario'],                    
+                    $userDb['nombres_user'],
+                    $userDb['last_name_user'],
+                    $userDb['cedula_user'],
+                    $userDb['correo_user'],
+                    $userDb['cargo_user'],
+                    $userDb['codigo_rol'],
+                    $userDb['pass_user']
+                );
+                return $user;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
 }
 ?>
