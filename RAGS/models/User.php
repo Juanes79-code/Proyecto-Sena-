@@ -214,6 +214,23 @@ class User{
         }
 
 }
+
+# RF07_CU07 - Actualizar Rol
+public function updateRol(){
+    try {
+        $sql = 'UPDATE ROLES SET
+                    codigo_rol = :rolCode,
+                    nombre_rol = :rolName
+                WHERE codigo_rol = :rolCode';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue('rolCode', $this->getRolCode());
+        $stmt->bindValue('rolName', $this->getRolName());
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+
 }
 
 ?>
