@@ -52,6 +52,13 @@
                 header("Location: ?c=Users&a=rolRead");
             }
         }
+        
+         // Controlador para eliminar Rol
+         public function rolDelete(){            
+            $rol = new User;
+            $rol->deleteRol($_GET['idRol']);
+            header("Location: ?c=Users&a=rolRead");            
+        }
 
     }
      ?>
