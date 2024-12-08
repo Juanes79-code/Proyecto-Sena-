@@ -34,44 +34,24 @@
             require_once "views/roles/admin/footer.view.php";
         }
         
-//         // Controlador para actualizar un Rol        
-//         public function rolUpdate(){            
-//             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-//                 $rolId = new User;
-//                 $rolId = $rolId->getRolById($_GET['idRol']);                
-//                 require_once "views/roles/admin/header.view.php";                
-//                 require_once "views/modules/users/rol_update.view.php";          
-//                 require_once "views/roles/admin/footer.view.php";
+        // Controlador para actualizar un Rol        
+        public function rolUpdate(){            
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $rolId = new User;
+                $rolId = $rolId->getRolById($_GET['idRol']);                
+                require_once "views/roles/admin/header.view.php";                
+                require_once "views/modules/users/rol_update.view.php";          
+                require_once "views/roles/admin/footer.view.php";
                 
-//             }
-//             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//                 $rolUpdate = new User;
-//                 $rolUpdate->setRolCode($_POST['rol_code']);
-//                 $rolUpdate->setRolName($_POST['rol_name']);
-//                 $rolUpdate->updateRol();
-//                 header("Location: ?c=Users&a=rolRead");
-//             }
-//         }
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $rolUpdate = new User;
+                $rolUpdate->setRolCode($_POST['rol_code']);
+                $rolUpdate->setRolName($_POST['rol_name']);
+                $rolUpdate->updateRol();
+                header("Location: ?c=Users&a=rolRead");
+            }
+        }
 
-//         // Controlador para eliminar Rol
-//         public function rolDelete(){            
-//             $rol = new User;
-//             $rol->deleteRol($_GET['idRol']);
-//             header("Location: ?c=Users&a=rolRead");            
-//         }
-
-
-//         public function userCreate(){
-//             require_once "views/roles/admin/header.view.php";            
-//             require_once "views/modules/users/user_create.view.php";            
-//             require_once "views/roles/admin/footer.view.php";            
-//         }
-
-//         public function userRead(){
-//             require_once "views/roles/admin/header.view.php";            
-//             require_once "views/modules/users/user_read.view.php";            
-//             require_once "views/roles/admin/footer.view.php";            
-//         }
-//     }
     }
-// ?>
+     ?>
