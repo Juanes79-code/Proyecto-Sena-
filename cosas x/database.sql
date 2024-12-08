@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS `USUARIOS` (
   CONSTRAINT `fk_codigo_rol`
     FOREIGN KEY (`codigo_rol`)
     REFERENCES `ROLES` (`codigo_rol`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -60,8 +59,7 @@ CREATE TABLE IF NOT EXISTS `VEHICULO` (
   CONSTRAINT `fk_tipo_vehiculo`
     FOREIGN KEY (`tipo_vehiculo`)
     REFERENCES `TIPO_DE_VEHICULO` (`tipo_vehiculo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -75,13 +73,11 @@ CREATE TABLE IF NOT EXISTS `ASOCIADO_VEHICULO` (
   CONSTRAINT `fk_usuario_asociado_vehiculo`
     FOREIGN KEY (`codigo_usuario`)
     REFERENCES `USUARIOS` (`codigo_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+   ,
   CONSTRAINT `fk_placa_vehiculo_asociado_vehiculo`
     FOREIGN KEY (`placa_vehiculo`)
     REFERENCES `VEHICULO` (`placa_vehiculo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -97,8 +93,7 @@ CREATE TABLE IF NOT EXISTS `INGRESO` (
   CONSTRAINT `fk_codigo_usuario_ingreso`
     FOREIGN KEY (`codigo_usuario`)
     REFERENCES `USUARIOS` (`codigo_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -123,8 +118,7 @@ CREATE TABLE IF NOT EXISTS `INGRESO_ELEMENTOS` (
   CONSTRAINT `fk_codigo_ingreso_elementos`
     FOREIGN KEY (`codigo_ingreso`)
     REFERENCES `INGRESO` (`codigo_ingreso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -138,13 +132,11 @@ CREATE TABLE IF NOT EXISTS `ASOCIADO_COMPUTADOR` (
   CONSTRAINT `fk_codigo_usuario_asociado_computador`
     FOREIGN KEY (`codigo_usuario`)
     REFERENCES `USUARIOS` (`codigo_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+   ,
   CONSTRAINT `fk_serial_computador_asociado_computador`
     FOREIGN KEY (`serial_computador`)
     REFERENCES `COMPUTADOR` (`serial_computador`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+   
 ) ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
