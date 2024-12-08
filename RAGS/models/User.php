@@ -153,5 +153,25 @@ class User{
         }
     }
 
+        // Registrar Rol
+    public function createRol(){
+            try {
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                $stmt = $this->dbh->prepare($sql);
+                $stmt->bindValue('rolCode', $this->getRolCode());
+                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->execute();
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
 }
+
+
+
+
+
+
 ?>
+

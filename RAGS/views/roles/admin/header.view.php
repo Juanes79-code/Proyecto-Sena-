@@ -27,49 +27,58 @@
 				<a class="sidebar-brand" href="index.html">
           <span class="align-middle">AdminKit</span>
         </a>
-
+				<!-- Roles -->
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
 						Roles
 					</li>
-
+				
+					<!-- Registrar Rol -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Rol</span>
             </a>
 					</li>
 
+					<!-- Consultar Roles -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Roles</span>
             </a>
 					</li>
+
+					<!-- Usuarios -->
 					<li class="sidebar-header">
 						Usuarios
 					</li>
 					 
+					<!-- Registrar Rol -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Rol</span>
             </a>
 					</li>
 
+					<!-- Consultar Roles -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Roles</span>
             </a>
 					</li>
 
+					<!-- Elementos -->
 					<li class="sidebar-header">
 						Elementos
 					</li>
 
+					<!-- Registra Rol -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Rol</span>
             </a>
 					</li>
 
+					<!-- Consultar Roles -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Roles</span>
