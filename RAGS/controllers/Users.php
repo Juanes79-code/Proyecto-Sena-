@@ -20,7 +20,7 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rol = new User;
                 $rol->setRolCode(null);
-                $rol->setnombreRol($_POST['nombreRol']);
+                $rol->setRolName($_POST['nombreRol']);
                 $rol->createRol();                
                 header("Location: ?c=Users&a=rolRead");
             }
