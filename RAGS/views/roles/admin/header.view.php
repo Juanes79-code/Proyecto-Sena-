@@ -42,7 +42,7 @@
 
 					<!-- Consultar Roles -->
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="#">
+						<a class="sidebar-link" href="?c=Users&a=rolRead">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Roles</span>
             </a>
 					</li>
@@ -55,14 +55,14 @@
 					<!-- Registrar Rol -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Rol</span>
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Usuario</span>
             </a>
 					</li>
 
 					<!-- Consultar Roles -->
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="#">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Roles</span>
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Usuarios</span>
             </a>
 					</li>
 

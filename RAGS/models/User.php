@@ -136,6 +136,8 @@ class User{
     }
 
     // Persistencia a la base de datos
+
+    // Roles
     public function login(){
         try {
             $sql = 'SELECT * FROM USUARIOS
@@ -230,17 +232,21 @@ public function updateRol(){
         die($e->getMessage());
     }
 }
-# RF08_CU08 - Eliminar Rol
-public function deleteRol($rolCode){
-    try {
-        $sql = 'DELETE FROM ROLES WHERE codigo_rol = :rolCode';
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->bindValue('rolCode', $rolCode);
-        $stmt->execute();
-    } catch (Exception $e) {
-        die($e->getMessage());
+    # RF08_CU08 - Eliminar Rol
+    public function deleteRol($rolCode){
+        try {
+            $sql = 'DELETE FROM ROLES WHERE codigo_rol = :rolCode';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('rolCode', $rolCode);
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
-}
+
+    // Usuarios
+
+    
 
 }
 

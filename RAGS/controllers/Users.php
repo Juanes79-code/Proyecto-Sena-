@@ -60,5 +60,12 @@
             header("Location: ?c=Users&a=rolRead");            
         }
 
+        // Crear Usuario
+        public function userCreate(){
+            require_once "views/roles/admin/header.view.php";            
+            require_once "views/modules/users/user_create.view.php";            
+            require_once "views/roles/admin/footer.view.php";            
+        }
+
     }
      ?>
