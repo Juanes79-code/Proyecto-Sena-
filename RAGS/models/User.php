@@ -11,6 +11,7 @@ class User{
     private $cargo_user;
     private $codigo_rol;
     private $pass_user;
+    private $nombre_rol;
   
     
     /* --------- MÉTODOS --------- */ 
@@ -45,6 +46,8 @@ class User{
         $this->codigo_rol = $codigo_rol;
         $this->pass_user = $pass_user;
     }
+
+    // Setters y Geeters
 
     // Codigo usuario
     public function setCodigoUser($codigo_usuario){
@@ -123,6 +126,15 @@ class User{
         return $this->pass_user;
     }
 
+     // Nombre del rol
+
+     public function setnombreRol($nombre_rol){
+        $this->nombre_rol = $nombre_rol;
+    }
+    public function getnombreRol(){
+        return $this->nombre_rol;
+    }
+
     // Persistencia a la base de datos
     public function login(){
         try {
@@ -156,21 +168,38 @@ class User{
         // Registrar Rol
     public function createRol(){
             try {
-                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                $sql = 'INSERT INTO ROLES VALUES (:rolCode,:nombreRol)';
                 $stmt = $this->dbh->prepare($sql);
                 $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->bindValue('nombreRol', $this->getnombreRol());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
 
+          # RF05_CU05 - Consultar Roles
+    public function readRoles(){
+        try {
+            $rolList = [];
+            $sql = 'SELECT * FROM ROLES';
+            $stmt = $this->dbh->query($sql);
+            foreach ($stmt->fetchAll() as $rol) {
+                $rolObj = new User;
+                $rolObj->setRolCode($rol['codigo_rol']);
+                $rolObj->setnombreRol($rol['nombre_rol']);
+                array_push($rolList, $rolObj);
+            }
+            return $rolList;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+
 }
 
 
 
-
+}
 
 
 ?>

@@ -16,7 +16,7 @@ USE `mydb`;
 -- Table `mydb`.`ROLES`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ROLES` (
-  `codigo_rol` INT NOT NULL,
+  `codigo_rol` INT NOT NULL AUTO_INCREMENT,
   `nombre_rol` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codigo_rol`)
 ) ENGINE = InnoDB;
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `ROLES` (
 -- Table `mydb`.`USUARIOS`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `USUARIOS` (
-  `codigo_usuario` INT NOT NULL,
+  `codigo_usuario` INT NOT NULL AUTO_INCREMENT,
   `nombres_user` VARCHAR(45) NOT NULL,
   `last_name_user` VARCHAR(45) NOT NULL,
   `cedula_user` VARCHAR(45) NOT NULL UNIQUE,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `USUARIOS` (
 -- Table `mydb`.`TIPO_DE_VEHICULO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `TIPO_DE_VEHICULO` (
-  `tipo_vehiculo` INT NOT NULL,
+  `tipo_vehiculo` INT NOT NULL AUTO_INCREMENT,
   `nombre_vehiculo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`tipo_vehiculo`)
 ) ENGINE = InnoDB;
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `TIPO_DE_VEHICULO` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `VEHICULO` (
   `placa_vehiculo` VARCHAR(45) NOT NULL,
-  `tipo_vehiculo` INT NOT NULL,
+  `tipo_vehiculo` INT NOT NULL AUTO_INCREMENT,
   `color` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`placa_vehiculo`),
   CONSTRAINT `fk_tipo_vehiculo`
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `VEHICULO` (
 -- Table `mydb`.`ASOCIADO_VEHICULO`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ASOCIADO_VEHICULO` (
-  `codigo_asociado_vehiculo` INT NOT NULL,
+  `codigo_asociado_vehiculo` INT NOT NULL AUTO_INCREMENT,
   `codigo_usuario` INT NOT NULL,
   `placa_vehiculo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codigo_asociado_vehiculo`),
