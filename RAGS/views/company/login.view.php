@@ -10,8 +10,8 @@
     <div class="login-container">
         <h1>Iniciar Sesión</h1>
         <form action="" method="POST" class="login-form">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="correo_user" placeholder="Ingresa tu usuario" required>
+            <label for="username">Correo:</label>
+            <input type="email" id="username" name="correo_user" placeholder="Ingresa tu correo" required>
             
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="pass_user" placeholder="Ingresa tu contraseña" required>
