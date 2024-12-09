@@ -77,16 +77,19 @@
                 $user->setRolCode($_POST['rolCode']);
                 $user->setPassUser($_POST['passUser']);
                 $user->setRolName(null);
-
-
-
-
-               
                 $user->createRol();                
                 header("Location: ?c=Users&a=rolRead");
             }
         }
-            
+        
+        // Controlador para consultar 'Todos' los usuarios
+        public function userRead(){
+            $usuarios = new User;
+            $usuarios = $usuarios->readUsuarios();            
+            require_once "views/roles/admin/header.view.php";
+            require_once "views/modules/users/user_read.view.php";          
+            require_once "views/roles/admin/footer.view.php";
+        }
      
 }
      ?>

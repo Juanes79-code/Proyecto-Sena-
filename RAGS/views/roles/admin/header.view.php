@@ -13,6 +13,7 @@
 	<link rel="shortcut icon" href="assets/landing/img/dashboard/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+	<link rel="canonical" href="https://demo-basic.adminkit.io/icons-feather.html" />
 
 	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
@@ -61,7 +62,7 @@
 
 					<!-- Consultar Roles -->
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="#">
+						<a class="sidebar-link" href="?c=Users&a=userRead">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consultar Usuarios</span>
             </a>
 					</li>

@@ -11,6 +11,9 @@ class User{
     private $codigo_rol;
     private $pass_user;
     private $nombre_rol;
+    private $nombre_vehiculo;
+    private $marca_computador;
+    
   
     
     /* --------- MÉTODOS --------- */ 
@@ -35,7 +38,7 @@ class User{
     }
     
     // Contructor de ocho parametros
-    public function __construct8($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$cargo_user,$codigo_rol,$pass_user){
+    public function __construct8($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$pass_user){
         $this->codigo_usuario = $codigo_usuario;
         $this->nombres_user = $nombres_user;
         $this->last_name_user = $last_name_user;
@@ -44,6 +47,20 @@ class User{
         $this->codigo_rol = $codigo_rol;
         $this->pass_user = $pass_user;
     }
+
+
+    // // Contructor de ocho parametros
+    // public function __construct8($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$nombre_vehiculo,$marca_computador){
+    //     $this->codigo_usuario = $codigo_usuario;
+    //     $this->nombres_user = $nombres_user;
+    //     $this->last_name_user = $last_name_user;
+    //     $this->cedula_user = $cedula_user;
+    //     $this->correo_user = $correo_user;
+    //     $this->codigo_rol = $codigo_rol;
+    //     $this->nombre_vehiculo = $nombre_vehiculo;
+    //     $this->marca_computador = $marca_computador;
+
+    // }
 
     // Setters y Geeters
 
@@ -123,6 +140,24 @@ class User{
         return $this->nombre_rol;
     }
 
+    // Tipo de vehiculo
+
+    public function setVehiculoType($tipo_vehiculo){
+        $this->tipo_vehiculo = $tipo_vehiculo;
+    }
+    public function getVehiculoType(){
+        return $this->tipo_vehiculo;
+    }
+
+    // Marca Computador
+
+    public function setMarcaComputador($marca_computador){
+        $this->marca_computador = $marca_computador;
+    }
+    public function getMarcaComputador(){
+        return $this->marca_computador;
+    }
+
     // Persistencia a la base de datos
 
     // Roles
@@ -168,24 +203,24 @@ class User{
             }
         }
 
-          # RF05_CU05 - Consultar Roles
-    public function readRoles(){
-        try {
-            $rolList = [];
-            $sql = 'SELECT * FROM ROLES';
-            $stmt = $this->dbh->query($sql);
-            foreach ($stmt->fetchAll() as $rol) {
-                $rolObj = new User;
-                $rolObj->setRolCode($rol['codigo_rol']);
-                $rolObj->setRolName($rol['nombre_rol']);
-                array_push($rolList, $rolObj);
-            }
-            return $rolList;
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+                # RF05_CU05 - Consultar Roles
+            public function readRoles(){
+                try {
+                    $rolList = [];
+                    $sql = 'SELECT * FROM ROLES';
+                    $stmt = $this->dbh->query($sql);
+                    foreach ($stmt->fetchAll() as $rol) {
+                        $rolObj = new User;
+                        $rolObj->setRolCode($rol['codigo_rol']);
+                        $rolObj->setRolName($rol['nombre_rol']);
+                        array_push($rolList, $rolObj);
+                    }
+                    return $rolList;
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
 
-}
+        }
 
     # RF06_CU06 - Obtener el Rol por el código
     public function getRolById($rolCode){
@@ -252,12 +287,35 @@ public function updateRol(){
         }
     }
 
-    
+     # RF05_CU05 - Consultar Uuarios
+     public function readUsuarios(){
+        try {
+            $usuarioList = [];
+            $sql = 'SELECT * FROM USUARIOS';
+            $stmt = $this->dbh->query($sql);
+            foreach ($stmt->fetchAll() as $usuario) {
+                $usuarioObj = new User;
+                $usuarioObj->setCodigoUser($usuario['codigo_usuario']);
+                $usuarioObj->setNombreUser($usuario['nombres_user']);
+                $usuarioObj->setLastNameUser($usuario['last_name_user']);
+                $usuarioObj->setCedulaUser($usuario['cedula_user']);
+                $usuarioObj->setCorreoUser($usuario['correo_user']);
+                $usuarioObj->setCorreoUser($usuario['correo_user']);
+                $usuarioObj->setCorreoUser($usuario['correo_user']);
+                $usuarioObj->setNombreUser($usuario['nombres_user']);
+                array_push($usuarioList, $usuarioObj);
+            }
+            return $usuarioList;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+
+}         
         
     
 
-
 }
+
 
 ?>
 
