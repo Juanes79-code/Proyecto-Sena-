@@ -61,8 +61,32 @@
         }
 
         // Crear Usuario
+        public function userCreate(){            
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once "views/roles/admin/header.view.php";
+                require_once "views/modules/users/user_create.view.php";          
+                require_once "views/roles/admin/footer.view.php";                
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $user = new User;
+                $user->setCodigoUser(null);
+                $user->setNombreUser($_POST['nombreUser']);
+                $user->setLastNameUser($_POST['apellidoUser']);
+                $user->setCedulaUser($_POST['cedulaUser']);
+                $user->setCorreoUser($_POST['correoUser']);
+                $user->setRolCode($_POST['rolCode']);
+                $user->setPassUser($_POST['passUser']);
+                $user->setRolName(null);
 
+
+
+
+               
+                $user->createRol();                
+                header("Location: ?c=Users&a=rolRead");
+            }
+        }
             
-     //HOLA
+     
 }
      ?>

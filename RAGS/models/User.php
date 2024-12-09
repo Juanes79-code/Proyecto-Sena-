@@ -41,7 +41,6 @@ class User{
         $this->last_name_user = $last_name_user;
         $this->cedula_user = $cedula_user;
         $this->correo_user = $correo_user;
-        $this->cargo_user = $cargo_user;
         $this->codigo_rol = $codigo_rol;
         $this->pass_user = $pass_user;
     }
@@ -93,16 +92,6 @@ class User{
 
     public function getCorreoUser(){
         return $this->correo_user;
-    }
-
-    // Cargo usuario
-    
-    public function setCargoUser($cargo_user){
-        $this->cargo_user = $cargo_user;
-    }
-    
-    public function getCargoUser(){
-        return $this->cargo_user;
     }
 
     // Codigo rol
@@ -244,6 +233,24 @@ public function updateRol(){
     }
 
     // Usuarios
+
+    public function createUser(){
+        try {
+            $sql = 'INSERT INTO USUARIOS VALUES (:CodigoUser,:NombreUser,:LastNameUser,:CedulaUser,:CorreoUser,:RolCode,:PassUser,:RolName)';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('CodigoUser', $this->getCodigoUser());
+            $stmt->bindValue('NombreUser', $this->getNombreUser());
+            $stmt->bindValue('LastNameUser', $this->getLastNameUser());
+            $stmt->bindValue('CedulaUser', $this->getCedulaUser());
+            $stmt->bindValue('CorreoUser', $this->getCorreoUser());
+            $stmt->bindValue('RolCode', $this->getRolCode());
+            $stmt->bindValue('PassUser', $this->getPassUser());
+            $stmt->bindValue('RolName', $this->getRolName());
+            $stmt->execute();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
     
         

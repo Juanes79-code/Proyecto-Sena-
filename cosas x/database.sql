@@ -17,7 +17,7 @@ USE `mydb`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ROLES` (
   `codigo_rol` INT NOT NULL AUTO_INCREMENT,
-  `nombre_rol` VARCHAR(45) NOT NULL,
+  `nombre_rol` VARCHAR(45)  NULL,
   PRIMARY KEY (`codigo_rol`)
 ) ENGINE = InnoDB;
 
