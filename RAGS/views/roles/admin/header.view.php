@@ -54,7 +54,7 @@
 					 
 					<!-- Registrar Rol -->
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="#">
+						<a class="sidebar-link" href="?c=Users&a=userCreate">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Registrar Usuario</span>
             </a>
 					</li>

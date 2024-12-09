@@ -1,4 +1,7 @@
-              <h1>Consultar Roles</h1>
+<main class="content">
+				<div class="container-fluid p-0">
+
+        <h1>Consultar Roles</h1>
               <table class="table">
                 <thead>
                   <tr>
@@ -24,3 +27,6 @@
                   <?php endforeach; ?>
                 </tbody>
               </table>
+       
+				</div>
+			</main>         

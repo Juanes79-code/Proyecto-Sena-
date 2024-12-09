@@ -67,7 +67,8 @@ class User{
     /* Métodos Setters y Getters */
     
     // Código del rol
-    public function setRolCode($rol_code){
+    public function set
+    ($rol_code){
         $this->rol_code = $rol_code;
     }
     public function getRolCode(){

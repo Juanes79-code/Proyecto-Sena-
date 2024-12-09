@@ -8,7 +8,6 @@ class User{
     private $last_name_user;
     private $cedula_user;
     private $correo_user;
-    private $cargo_user;
     private $codigo_rol;
     private $pass_user;
     private $nombre_rol;
@@ -247,6 +246,9 @@ public function updateRol(){
     // Usuarios
 
     
+        
+    
+
 
 }
 
