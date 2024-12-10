@@ -90,6 +90,24 @@
             require_once "views/modules/users/user_read.view.php";          
             require_once "views/roles/admin/footer.view.php";
         }
-     
+        
+        // Controlador para actualizar un Rol        
+        public function userUpdate(){            
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $userId = new User;
+                $userId = $userId->getusuarioById($_GET['idUser']);                
+                require_once "views/roles/admin/header.view.php";                
+                require_once "views/modules/users/user_update.view.php";          
+                require_once "views/roles/admin/footer.view.php";
+                
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $rolUpdate = new User;
+                $rolUpdate->setRolCode($_POST['rol_code']);
+                $rolUpdate->setRolName($_POST['rol_name']);
+                $rolUpdate->updateRol();
+                header("Location: ?c=Users&a=rolRead");
+            }
+        }
 }
      ?>

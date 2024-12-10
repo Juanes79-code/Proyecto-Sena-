@@ -316,16 +316,16 @@ public function updateRol(){
      public function readUsuarios(){
         try {
             $usuarioList = [];
-            $sql = 'SELECT * FROM USUARIOS JOIN INGRESO';
+            $sql = 'SELECT * FROM USUARIOS JOIN INGRESO JOIN ROLES';
             $stmt = $this->dbh->query($sql);
             foreach ($stmt->fetchAll() as $usuario) {
                 $usuarioObj = new User;
                 $usuarioObj->setCodigoUser($usuario['codigo_ingreso']);
                 $usuarioObj->setNombreUser($usuario['nombres_user']);
                 $usuarioObj->setLastNameUser($usuario['last_name_user']);
+                $usuarioObj->setRolName($usuario['nombre_rol']);
                 $usuarioObj->setCedulaUser($usuario['cedula_user']);
                 $usuarioObj->setCorreoUser($usuario['correo_user']);
-                $usuarioObj->setRolCode($usuario['codigo_rol']);
                 $usuarioObj->setPassUser($usuario['pass_user']);
                 $usuarioObj->setfechaIngreso($usuario['fecha_ingreso']);
                 $usuarioObj->setentradaIngreso($usuario['hora_entrada_ingreso']);
@@ -339,7 +339,32 @@ public function updateRol(){
         }
 
 }         
-        
+          # RF06_CU06 - Obtener el Rol por el código
+    public function getUsuarioById($userCode){
+        try {
+            $sql = "SELECT * FROM USUARIOS JOIN INGRESO JOIN ROLES WHERE codigo_ingreso=:codigoIngreso";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue('codigoIngreso', $userCode);
+            $stmt->execute();
+            $userDb = $stmt->fetch();
+            $user = new User;
+            $user->setCodigoUser($userDb['codigo_ingreso']);
+            $user->setNombreUser($userDb['nombres_user']);
+            $user->setLastNameUser($userDb['last_name_user']);
+            $user->setRolName($userDb['nombre_rol']);
+            $user->setCedulaUser($userDb['cedula_user']);
+            $user->setCorreoUser($userDb['correo_user']);
+            $user->setPassUser($userDb['pass_user']);
+            $user->setfechaIngreso($userDb['fecha_ingreso']);
+            $user->setentradaIngreso($userDb['hora_entrada_ingreso']);
+            $user->setsalidaIngreso($userDb['hora_salida_ingreso']);
+            return $user;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+
+}
+
     
 
 }
