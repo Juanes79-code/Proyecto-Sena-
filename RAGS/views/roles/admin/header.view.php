@@ -15,7 +15,7 @@
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 	<link rel="canonical" href="https://demo-basic.adminkit.io/icons-feather.html" />
 
-	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
+	<title>RAGS</title>
 
 	<link href="assets/dashboard/static/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">RAGS</span>
         </a>
 				<!-- Roles -->
 				<ul class="sidebar-nav">
@@ -86,6 +86,12 @@
             </a>
 					</li>
 
+					<!-- Cerrar sesión -->
+					<li class="sidebar-item">
+										<a class="sidebar-link" href="?">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Cerrar sesión</span>
+							</a>
+									</li>
 					
 				</ul>
 
@@ -105,13 +111,13 @@
 							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
 								<div class="position-relative">
 									<i class="align-middle" data-feather="bell"></i>
-									<span class="indicator">4</span>
+									<!-- <span class="indicator">4</span> -->
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-								<div class="dropdown-menu-header">
+								<!-- <div class="dropdown-menu-header">
 									4 New Notifications
-								</div>
+								</div> -->
 								<div class="list-group">
 									<a href="#" class="list-group-item">
 										<div class="row g-0 align-items-center">
@@ -240,7 +246,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="assets/landing/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <!-- <img src="assets/landing/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span> -->
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>

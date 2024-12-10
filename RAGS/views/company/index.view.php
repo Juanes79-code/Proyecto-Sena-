@@ -6,7 +6,7 @@
         </section>
         <section id="about" class="section">
             <h2>About</h2>
-            <p>Somos una empresa dedicada a ofrecer servicios de calidad para nuestros usuarios.</p>
+            <p>Somos encargados del manejo de registro de entra y salida del SENA CEET Sede Quirigua.</p>
         </section>
        
     </main>

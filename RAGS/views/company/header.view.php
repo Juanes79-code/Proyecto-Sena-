@@ -11,8 +11,7 @@
     <header>
         <nav>
             <ul class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="">Home</a></li>
                 <li><a href="?c=Login">Iniciar Sesión</a></li>
             </ul>
         </nav>
