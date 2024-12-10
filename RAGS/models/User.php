@@ -52,8 +52,8 @@ class User{
     }
 
      // Contructor de ocho parametros
-     public function __construct10($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$pass_user,$fecha_ingreso,$hora_entrada_ingreso,$hora_salida_ingreso){
-        $this->codigo_usuario = $codigo_usuario;
+     public function __construct10($codigo_ingreso,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$pass_user,$fecha_ingreso,$hora_entrada_ingreso,$hora_salida_ingreso){
+        $this->codigo_ingreso = $codigo_ingreso;
         $this->nombres_user = $nombres_user;
         $this->last_name_user = $last_name_user;
         $this->cedula_user = $cedula_user;
@@ -143,6 +143,15 @@ class User{
     }
     public function getRolName(){
         return $this->nombre_rol;
+    }
+
+    // Codigo Ingreso
+
+    public function setCodigoIngreso($codigo_ingreso){
+        $this->codigo_ingreso = $codigo_ingreso;
+    }
+    public function getCodigoIngreso(){
+        return $this->codigo_ingreso;
     }
 
     // Fecha Ingreso
@@ -311,7 +320,7 @@ public function updateRol(){
             $stmt = $this->dbh->query($sql);
             foreach ($stmt->fetchAll() as $usuario) {
                 $usuarioObj = new User;
-                $usuarioObj->setCodigoUser($usuario['codigo_usuario']);
+                $usuarioObj->setCodigoUser($usuario['codigo_ingreso']);
                 $usuarioObj->setNombreUser($usuario['nombres_user']);
                 $usuarioObj->setLastNameUser($usuario['last_name_user']);
                 $usuarioObj->setCedulaUser($usuario['cedula_user']);
