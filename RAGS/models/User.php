@@ -11,8 +11,11 @@ class User{
     private $codigo_rol;
     private $pass_user;
     private $nombre_rol;
-    private $nombre_vehiculo;
-    private $marca_computador;
+    private $codigo_ingreso;
+    private $fecha_ingreso;
+    private $hora_entrada_ingreso;
+    private $hora_salida_ingreso;
+
     
   
     
@@ -48,19 +51,21 @@ class User{
         $this->pass_user = $pass_user;
     }
 
+     // Contructor de ocho parametros
+     public function __construct10($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$pass_user,$fecha_ingreso,$hora_entrada_ingreso,$hora_salida_ingreso){
+        $this->codigo_usuario = $codigo_usuario;
+        $this->nombres_user = $nombres_user;
+        $this->last_name_user = $last_name_user;
+        $this->cedula_user = $cedula_user;
+        $this->correo_user = $correo_user;
+        $this->codigo_rol = $codigo_rol;
+        $this->pass_user = $pass_user;
+        $this->fecha_ingreso = $fecha_ingreso;
+        $this->hora_entrada_ingreso = $hora_entrada_ingreso;
+        $this->hora_salida_ingreso = $hora_salida_ingreso;
 
-    // // Contructor de ocho parametros
-    // public function __construct8($codigo_usuario,$nombres_user,$last_name_user,$cedula_user,$correo_user,$codigo_rol,$nombre_vehiculo,$marca_computador){
-    //     $this->codigo_usuario = $codigo_usuario;
-    //     $this->nombres_user = $nombres_user;
-    //     $this->last_name_user = $last_name_user;
-    //     $this->cedula_user = $cedula_user;
-    //     $this->correo_user = $correo_user;
-    //     $this->codigo_rol = $codigo_rol;
-    //     $this->nombre_vehiculo = $nombre_vehiculo;
-    //     $this->marca_computador = $marca_computador;
-
-    // }
+    }
+   
 
     // Setters y Geeters
 
@@ -140,23 +145,34 @@ class User{
         return $this->nombre_rol;
     }
 
-    // Tipo de vehiculo
+    // Fecha Ingreso
 
-    public function setVehiculoType($tipo_vehiculo){
-        $this->tipo_vehiculo = $tipo_vehiculo;
+    public function setfechaIngreso($fecha_ingreso){
+        $this->fecha_ingreso = $fecha_ingreso;
     }
-    public function getVehiculoType(){
-        return $this->tipo_vehiculo;
+    public function getfechaIngreso(){
+        return $this->fecha_ingreso;
     }
 
-    // Marca Computador
+    // Fecha de entrada
 
-    public function setMarcaComputador($marca_computador){
-        $this->marca_computador = $marca_computador;
+    public function setentradaIngreso($hora_entrada_ingreso){
+        $this->hora_entrada_ingreso = $hora_entrada_ingreso;
     }
-    public function getMarcaComputador(){
-        return $this->marca_computador;
+    public function getentradaIngreso(){
+        return $this->hora_entrada_ingreso;
     }
+
+    // Fecha de salida
+
+    public function setsalidaIngreso($hora_salida_ingreso){
+        $this->hora_salida_ingreso = $hora_salida_ingreso;
+    }
+    public function getsalidaIngreso(){
+        return $this->hora_salida_ingreso;
+    }
+
+
 
     // Persistencia a la base de datos
 
@@ -291,7 +307,7 @@ public function updateRol(){
      public function readUsuarios(){
         try {
             $usuarioList = [];
-            $sql = 'SELECT * FROM USUARIOS';
+            $sql = 'SELECT * FROM USUARIOS JOIN INGRESO';
             $stmt = $this->dbh->query($sql);
             foreach ($stmt->fetchAll() as $usuario) {
                 $usuarioObj = new User;
@@ -300,9 +316,12 @@ public function updateRol(){
                 $usuarioObj->setLastNameUser($usuario['last_name_user']);
                 $usuarioObj->setCedulaUser($usuario['cedula_user']);
                 $usuarioObj->setCorreoUser($usuario['correo_user']);
-                $usuarioObj->setCorreoUser($usuario['correo_user']);
-                $usuarioObj->setCorreoUser($usuario['correo_user']);
-                $usuarioObj->setNombreUser($usuario['nombres_user']);
+                $usuarioObj->setRolCode($usuario['codigo_rol']);
+                $usuarioObj->setPassUser($usuario['pass_user']);
+                $usuarioObj->setfechaIngreso($usuario['fecha_ingreso']);
+                $usuarioObj->setentradaIngreso($usuario['hora_entrada_ingreso']);
+                $usuarioObj->setsalidaIngreso($usuario['hora_salida_ingreso']);
+
                 array_push($usuarioList, $usuarioObj);
             }
             return $usuarioList;
