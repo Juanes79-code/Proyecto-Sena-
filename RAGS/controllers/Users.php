@@ -91,23 +91,30 @@
             require_once "views/roles/admin/footer.view.php";
         }
         
-        // Controlador para actualizar un Rol        
-        public function userUpdate(){            
-            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                $userId = new User;
-                $userId = $userId->getusuarioById($_GET['idUser']);                
-                require_once "views/roles/admin/header.view.php";                
-                require_once "views/modules/users/user_update.view.php";          
-                require_once "views/roles/admin/footer.view.php";
-                
-            }
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $rolUpdate = new User;
-                $rolUpdate->setRolCode($_POST['rol_code']);
-                $rolUpdate->setRolName($_POST['rol_name']);
-                $rolUpdate->updateRol();
-                header("Location: ?c=Users&a=rolRead");
-            }
+            // Controlador para actualizar un Rol
+    public function userUpdate() {            
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $userId = new User;
+            $userId = $userId->getusuarioById($_GET['idUser']);                
+            require_once "views/roles/admin/header.view.php";                
+            require_once "views/modules/users/user_update.view.php";          
+            require_once "views/roles/admin/footer.view.php";
         }
-}
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $userUpdate = new User;
+            $userUpdate->setCodigoUser($_POST['codigo_user']);
+            $userUpdate->setNombreUser($_POST['nombres_user']);
+            $userUpdate->setLastNameUser($_POST['last_name_user']);
+            $userUpdate->setRolName($_POST['nombre_rol']);
+            $userUpdate->setCedulaUser($_POST['cedula_user']);
+            $userUpdate->setCorreoUser($_POST['correo_user']);               
+            $userUpdate->setPassUser($_POST['pass_user']);
+            $userUpdate->setFechaIngreso($_POST['fecha_ingreso']);
+            $userUpdate->setEntradaIngreso($_POST['hora_entrada_ingreso']);
+            $userUpdate->setSalidaIngreso($_POST['hora_salida_ingreso']);
+            $userUpdate->updateUser();
+            header("Location: ?c=Users&a=userRead");
+        }
+    }
+    }
      ?>

@@ -365,6 +365,40 @@ public function updateRol(){
 
 }
 
+
+public function updateUser() {
+    try {
+        $sql = 'UPDATE USUARIOS JOIN INGRESO SET
+                    codigo_user = :codigoUser,
+                    nombres_user = :nombreUser,
+                    last_name_user = :lastNameUser,
+                    nombre_rol = :rolName,
+                    correo_user = :correoUser,
+                    cedula_user = :cedulaUser,
+                    pass_user = :passUser,
+                    fecha_ingreso = :fechaIngreso,
+                    hora_entrada_ingreso = :entradaIngreso,
+                    hora_salida_ingreso = :salidaIngreso
+                WHERE codigo_user = :codigo_user';
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(':codigoUser', $this->getCodigoUser());
+        $stmt->bindValue(':nombreUser', $this->getNombreUser());
+        $stmt->bindValue(':lastNameUser', $this->getLastNameUser());
+        $stmt->bindValue(':rolName', $this->getRolName());
+        $stmt->bindValue(':correoUser', $this->getCorreoUser());
+        $stmt->bindValue(':cedulaUser', $this->getCedulaUser());
+        $stmt->bindValue(':passUser', $this->getPassUser());
+        $stmt->bindValue(':fechaIngreso', $this->getFechaIngreso());
+        $stmt->bindValue(':entradaIngreso', $this->getEntradaIngreso());
+        $stmt->bindValue(':salidaIngreso', $this->getSalidaIngreso());
+        $stmt->bindValue(':codigo_user', $this->getCodigoUser());
+        $stmt->execute();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+
+
     
 
 }
